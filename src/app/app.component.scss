@@ -1,0 +1,80 @@
+:host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgb(200, 200, 200);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(93, 93, 94);
+    border-radius: 20px;
+    border: 2px solid rgb(200, 200, 200);
+  }
+  * {
+    scrollbar-color: rgb(93, 93, 94) rgb(200, 200, 200);
+    scrollbar-width: thin;
+  }
+  
+  .btn {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s linear;
+    &--left {
+      transform: translate(50%, -50%);
+      left: 0;
+    }
+    &--right {
+      right: 0;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .main {
+    position: relative;
+    width: min(920px, 100%);
+    margin-inline: auto;
+    &__container {
+      display: grid;
+      gap: 6px;
+      grid-auto-flow: column;
+      overflow: auto;
+      width: inherit;
+      margin-inline: inherit;
+      > div {
+        width: 170px;
+        aspect-ratio: 1/1.35;
+        display: grid;
+        place-content: center;
+        color: #fff;
+  
+        &:nth-child(2n) {
+          background-color: tomato;
+        }
+        &:nth-child(2n + 1) {
+          background-color: purple;
+        }
+      }
+    }
+    &:hover {
+      .btn {
+        visibility: visible;
+        opacity: 1;
+        transition: all 0.2s linear;
+      }
+    }
+  }
+  
